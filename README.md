@@ -6,7 +6,7 @@ This is a CLI application written in Go that uses a local LLM (phi3 via Ollama) 
 
 1.  **Go**: Ensure you have Go installed (version 1.25.3 or later recommended).
 2.  **Ollama**: You need to have [Ollama](https://ollama.com/) installed and running.
-3.  **Llama 3.1 Model**: Pull the required model:
+3.  **Phi3 Model**: GitHub Codespaces have limited resources, and we found this model to be a good compromise between accuracy and resourse needs. Pull the required model:
     ```bash
     ollama pull phi3
     ```
