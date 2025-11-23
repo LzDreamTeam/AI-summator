@@ -61,3 +61,15 @@ go test -v ./...
     -   `summator.go`: Implementation of the summator using `langchaingo`.
     -   `summator_test.go`: Unit tests with mocked LLM.
     -   `integration_test.go`: Integration tests against a real Ollama instance.
+
+## DevContainer / GitHub Codespaces
+
+This project includes a DevContainer configuration. You can open this project in GitHub Codespaces or VS Code with the Dev Containers extension.
+
+The DevContainer is configured to:
+1.  Install Go.
+2.  Install Ollama.
+3.  Automatically start the Ollama server.
+4.  Pull the `llama3.1` model during the creation phase.
+
+**Note**: Running LLMs in a cloud environment (like standard Codespaces) might be slow due to lack of GPU acceleration.

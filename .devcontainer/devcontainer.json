@@ -1,0 +1,17 @@
+{
+	"name": "Go & Ollama",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.go"
+			]
+		}
+	},
+	"forwardPorts": [11434],
+	"postCreateCommand": "nohup ollama serve > /dev/null 2>&1 & sleep 10 && ollama pull llama3.1",
+	"postStartCommand": "nohup ollama serve > /dev/null 2>&1 &",
+	"remoteUser": "vscode"
+}
