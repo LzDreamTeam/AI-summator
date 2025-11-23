@@ -30,9 +30,9 @@ func main() {
 
 	ctx := context.Background()
 
-	// Initialize Ollama with llama3.1
-	// Ensure you have ollama running and llama3.1 pulled: `ollama pull llama3.1`
-	llm, err := ollama.New(ollama.WithModel("llama3.1"))
+	// Initialize Ollama with phi3
+	// Ensure you have ollama running and phi3 pulled: `ollama pull phi3`
+	llm, err := ollama.New(ollama.WithModel("phi3"))
 	if err != nil {
 		log.Fatalf("Failed to create Ollama client: %v", err)
 	}

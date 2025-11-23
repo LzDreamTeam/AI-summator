@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/go:1-1.22-bookworm
+FROM mcr.microsoft.com/devcontainers/go:1.25-bookworm
 
 # Install Ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
