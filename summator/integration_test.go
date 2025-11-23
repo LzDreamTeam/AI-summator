@@ -10,10 +10,10 @@ import (
 )
 
 func TestIntegrationSum(t *testing.T) {
-	// This test assumes Ollama is running locally with llama3.1 model pulled.
+	// This test assumes Ollama is running locally with phi3 model pulled.
 	// To run this test: go test -v ./summator/ -run TestIntegrationSum
 	
-	llm, err := ollama.New(ollama.WithModel("llama3.1"))
+	llm, err := ollama.New(ollama.WithModel("phi3"))
 	if err != nil {
 		t.Skipf("Skipping integration test: failed to create ollama client: %v", err)
 	}
@@ -27,7 +27,7 @@ func TestIntegrationSum(t *testing.T) {
 	// but with the prompt we designed, it should be robust.
 	result, err := summator.Sum(ctx, 10, 20)
 	if err != nil {
-		t.Logf("Integration test failed (ensure ollama is running and llama3.1 is pulled): %v", err)
+		t.Logf("Integration test failed (ensure ollama is running and phi3 is pulled): %v", err)
 		t.FailNow()
 	}
 

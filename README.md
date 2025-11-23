@@ -1,6 +1,6 @@
 # AI Summator
 
-This is a CLI application written in Go that uses a local LLM (llama3.1 via Ollama) to sum two numbers. It demonstrates how to integrate Go with local LLMs using LangChain for Go (`langchaingo`).
+This is a CLI application written in Go that uses a local LLM (phi3 via Ollama) to sum two numbers. It demonstrates how to integrate Go with local LLMs using LangChain for Go (`langchaingo`).
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ This is a CLI application written in Go that uses a local LLM (llama3.1 via Olla
 2.  **Ollama**: You need to have [Ollama](https://ollama.com/) installed and running.
 3.  **Llama 3.1 Model**: Pull the required model:
     ```bash
-    ollama pull llama3.1
+    ollama pull phi3
     ```
 
 ## Installation
@@ -52,7 +52,7 @@ To run all tests:
 go test -v ./...
 ```
 
-**Note**: The integration tests require Ollama to be running and the `llama3.1` model to be available. If Ollama is not reachable, the integration test will fail.
+**Note**: The integration tests require Ollama to be running and the `phi3` model to be available. If Ollama is not reachable, the integration test will fail.
 
 ## Project Structure
 
@@ -70,6 +70,6 @@ The DevContainer is configured to:
 1.  Install Go.
 2.  Install Ollama.
 3.  Automatically start the Ollama server.
-4.  Pull the `llama3.1` model during the creation phase.
+4.  Pull the `phi3` model during the creation phase.
 
 **Note**: Running LLMs in a cloud environment (like standard Codespaces) might be slow due to lack of GPU acceleration.
