@@ -4,7 +4,7 @@ This is a CLI application written in Go that uses a local LLM (phi3 via Ollama) 
 
 ## Prerequisites
 
-1.  **Go**: Ensure you have Go installed (version 1.22 or later recommended).
+1.  **Go**: Ensure you have Go installed (version 1.25.3 or later recommended).
 2.  **Ollama**: You need to have [Ollama](https://ollama.com/) installed and running.
 3.  **Llama 3.1 Model**: Pull the required model:
     ```bash
