@@ -1,0 +1,68 @@
+# -------------------------------
+# Global text normalization
+# -------------------------------
+*                 text=auto
+
+# -------------------------------
+# Go source files
+# -------------------------------
+*.go              text diff=go
+
+# -------------------------------
+# Config & data files
+# -------------------------------
+*.mod             text
+*.sum             text
+*.env             text
+*.yaml            text
+*.yml             text
+*.toml            text
+*.json            text
+*.ini             text
+*.cfg             text
+*.conf            text
+*.sql             text
+*.txt             text
+*.md              text diff=markdown
+
+# -------------------------------
+# Shell & tooling scripts
+# -------------------------------
+*.sh              text
+*.bash            text
+*.zsh             text
+*.ps1             text
+
+# -------------------------------
+# Make & build files
+# -------------------------------
+Makefile          text
+Dockerfile        text
+*.dockerfile      text
+
+# -------------------------------
+# Certificates & keys (still text, but sensitive)
+# -------------------------------
+*.pem             text
+*.crt             text
+*.key             text
+
+# -------------------------------
+# Binary files (never normalize, never diff)
+# -------------------------------
+*.exe             binary
+*.dll             binary
+*.so              binary
+*.dylib           binary
+*.a               binary
+*.o               binary
+*.zip             binary
+*.tar             binary
+*.gz              binary
+*.7z              binary
+*.pdf             binary
+*.png             binary
+*.jpg             binary
+*.jpeg            binary
+*.gif             binary
+*.webp            binary
