@@ -8,7 +8,6 @@ import (
 	"strconv"
 
 	"ai-summator/summator"
-	"github.com/tmc/langchaingo/llms/ollama"
 )
 
 func main() {
@@ -32,16 +31,16 @@ func main() {
 
 	// Initialize Ollama with llama3.1
 	// Ensure you have ollama running and llama3.1 pulled: `ollama pull llama3.1`
-	llm, err := ollama.New(ollama.WithModel("llama3.1"))
+	// (Not used directly - tool is called instead of LLM)
+
+	// Create a tool handler for the Add function
+	toolInputA := summator.AddToolInput{A: a, B: b}
+	
+	// Call the Add tool directly instead of using LLM
+	result, err := summator.AddTool(ctx, &toolInputA)
 	if err != nil {
-		log.Fatalf("Failed to create Ollama client: %v", err)
+		log.Fatalf("Add tool failed: %v", err)
 	}
 
-	app := summator.NewAISummator(llm)
-	result, err := app.Sum(ctx, a, b)
-	if err != nil {
-		log.Fatalf("Summation failed: %v", err)
-	}
-
-	fmt.Printf("Result: %f\n", result)
+	fmt.Printf("Result: %s\n", result)
 }

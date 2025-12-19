@@ -2,6 +2,7 @@ package summator
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"strconv"
 	"strings"
@@ -45,3 +46,29 @@ func (s *AISummator) Sum(ctx context.Context, a, b float64) (float64, error) {
 
 	return result, nil
 }
+
+// AddToolInput represents the input for the Add tool
+type AddToolInput struct {
+	A float64 `json:"a"`
+	B float64 `json:"b"`
+}
+
+// AddTool is a simple tool that calculates a + b
+func AddTool(ctx context.Context, input *AddToolInput) (string, error) {
+	if input == nil {
+		return "", fmt.Errorf("input cannot be nil")
+	}
+	result := input.A + input.B
+	return fmt.Sprintf("%f", result), nil
+}
+
+// AddToolHandler parses JSON input and calls AddTool
+func AddToolHandler(ctx context.Context, inputStr string) (string, error) {
+	var input AddToolInput
+	err := json.Unmarshal([]byte(inputStr), &input)
+	if err != nil {
+		return "", fmt.Errorf("failed to parse input: %w", err)
+	}
+	return AddTool(ctx, &input)
+}
+
