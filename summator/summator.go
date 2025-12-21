@@ -27,10 +27,15 @@ func NewAISummator(llm LLMProvider) *AISummator {
 	}
 }
 
+// Description returns a description of the AISummator
+func (s *AISummator) Description() string {
+	return "Useful for adding two numbers together. Input should be a JSON object with 'a' and 'b' fields representing the numbers to add."
+}
+
 // Sum calculates the sum of two numbers using the LLM
 func (s *AISummator) Sum(ctx context.Context, a, b float64) (float64, error) {
 	prompt := fmt.Sprintf("Calculate the sum of %f and %f. Return ONLY the numeric result, nothing else. Do not include any text, just the number.", a, b)
-	
+
 	response, err := s.llm.Call(ctx, prompt)
 	if err != nil {
 		return 0, fmt.Errorf("failed to call LLM: %w", err)
@@ -38,7 +43,7 @@ func (s *AISummator) Sum(ctx context.Context, a, b float64) (float64, error) {
 
 	// Clean up the response just in case the model adds whitespace or newlines
 	cleanedResponse := strings.TrimSpace(response)
-	
+
 	result, err := strconv.ParseFloat(cleanedResponse, 64)
 	if err != nil {
 		return 0, fmt.Errorf("failed to parse LLM response '%s' as float: %w", cleanedResponse, err)
@@ -71,4 +76,3 @@ func AddToolHandler(ctx context.Context, inputStr string) (string, error) {
 	}
 	return AddTool(ctx, &input)
 }
-
